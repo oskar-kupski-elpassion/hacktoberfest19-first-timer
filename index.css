@@ -27,10 +27,65 @@ h3 {
   justify-content: center;
 }
 
-.contributors-cell.mdl-cell {
+.contributor {
   width: 230px;
+  height: 230px;
+  margin: 20px;
+  overflow: hidden;
+  border-radius: 50%;
+  position: relative;
+  display: block;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
-.contributors-card__media.mdl-card__media {
-  height: 230px;
+.contributor:after {
+  content: '';
+  background: rgba(0,0,0,.4);
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: .3s opacity linear;
+  pointer-events: none;
+}
+
+.contributor:hover:after, .contributor:hover .contributor__see-more {
+  opacity: 1;
+}
+
+.contributor__name {
+  display: inline-block;
+  position: absolute;
+  bottom: 15px;
+  left: 0;
+  right: 0;
+  text-align: center;
+  background: rgba(255,255,255,.7);
+  padding: 10px;
+  pointer-events: none;
+  border-bottom: 7px solid #ba3b46;
+  font-style: italic;
+  font-weight: bold;
+}
+
+.contributor__see-more {
+  transition: .3s opacity linear;
+  display: inline-block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 14px;
+  color: #fff;
+  padding: 4px 20px;
+  opacity: 0;
+  z-index: 2;
+  letter-spacing: .6px;
+  white-space: nowrap;
 }

@@ -16,22 +16,15 @@ var getData = (function($) {
           }
 
           var template =
-            "<div class='contributors-cell mdl-cell mdl-card'>" +
-              "<div class='contributors-card__media mdl-card__media'" +
-                "style='background: url(" +
-                  user.avatar_url +
-                ") center / cover;'>" +
-              "</div>" +
-              "<div class='mdl-card__supporting-text'>" +
+            "<a href='" + user.html_url + "' target='_blank' class='contributor' " +
+                "style='background-image: url(" + user.avatar_url + ");'>" +
+              "<span class='contributor__see-more'>" +
+                "Click to see" +
+              "</span>" +
+              "<span class='contributor__name'>" +
                 user.login +
-              "</div>" +
-              "<div class='mdl-card__actions mdl-card--border'>" +
-                "<a class='mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect'" +
-                  "target='_blank' href='" +
-                    user.html_url +
-                "'>See</a>" +
-              "</div>" +
-            "</div>";
+              "</span>" +
+            "</a>";
 
           $("#contributors").append(template);
           users[i] = user.login;
